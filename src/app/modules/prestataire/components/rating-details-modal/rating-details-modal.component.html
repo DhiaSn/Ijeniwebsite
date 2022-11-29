@@ -1,0 +1,27 @@
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+  *ngIf="rateElement"
+>
+  <div class="modal-dialog modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body justify-content-center text-center">
+        <h6 class="text-capitalize">Rated By : {{ rateElement.ratedName }}</h6>
+        <div class="my-3">
+          <img
+            class="square-72 rounded-3 center"
+            src="{{ rateElement.ratedImageURI }}"
+            alt="{{ rateElement.ratedName }}"
+          />
+        </div>
+        <p>{{ rateElement.description }}</p>
+        <!-- rate dtails -->
+        <app-rating-details [rate]="rate"></app-rating-details>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+.logo {
+  width: 150px;
+}
+
+@media only screen and (max-width: 393px) {
+  .mobile_nav .crs_yuo12.w-auto {
+    padding: 4px 2px;
+  }
+  .logo {
+    width: 125px;
+  }
+}

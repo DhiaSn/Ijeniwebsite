@@ -1,0 +1,28 @@
+.category-icon-container {
+  height: 50px;
+}
+.category-icon-container .category-icon {
+  width: auto;
+  height: 45px;
+}
+
+.category-name-container {
+  height: 70px;
+}
+@media only screen and (max-width: 393px) {
+  .category-item-container {
+    flex-basis: 50%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .category-name-container {
+    height: 45px;
+  }
+  .category-name-container h4 {
+    line-height: 0.9rem;
+  }
+  .category-card {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}

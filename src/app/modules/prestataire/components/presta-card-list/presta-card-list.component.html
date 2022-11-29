@@ -1,0 +1,70 @@
+<div class="jbr-wrap text-left border rounded">
+  <div
+    class="cats-box mlb-res rounded bg-white d-flex align-items-center justify-content-between px-3 py-3"
+  >
+    <div
+      class="cats-box rounded bg-white d-flex align-items-center preta-container"
+    >
+      <div class="text-center presta-picture-container">
+        <img
+          src="{{ provider.pictureURI }}"
+          class="img-fluid presta-picture"
+          alt="{{ provider.name }}"
+        />
+      </div>
+      <div class="cats-box-caption px-2 d-block provider-details-container">
+        <h4 class="fs-md mb-0 ft-medium text-capitalize">
+          {{ provider.name }}
+        </h4>
+        <div class="d-block mb-2 position-relative">
+          <ul class="skills_tag text-center mt-2">
+            <li>
+              <span class="px-2 py-1 mr-2 medium skill-bg rounded text-dark"
+                ><i
+                  *ngIf="provider.isIdentityVerified"
+                  class="fa fa-check text-success"
+                ></i
+                ><i
+                  *ngIf="!provider.isIdentityVerified"
+                  class="fa fa-times-circle text-danger"
+                  aria-hidden="true"
+                ></i>
+                Verifié</span
+              >
+            </li>
+            <li>
+              <span class="px-2 py-1 mr-2 medium skill-bg rounded text-dark"
+                ><i
+                  *ngIf="provider.isCertified"
+                  class="fa fa-check text-success"
+                ></i
+                ><i
+                  *ngIf="!provider.isCertified"
+                  class="fa fa-times-circle text-danger"
+                  aria-hidden="true"
+                ></i>
+                Certifié</span
+              >
+            </li>
+
+            <li>
+              <span
+                class="px-2 py-1 mr-2 medium rounded text-light"
+                style="background-color: #ffcc09"
+                ><i class="fas fa-star"></i
+                >{{ provider.rate | number: "1.0-0" }}</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mlb-last">
+      <a
+        class="btn gray ft-medium apply-btn fs-sm rounded viewCandidateBtn"
+        [routerLink]="['/prestataire', provider.id]"
+        >View Candidate<i class="lni lni-arrow-right-circle ml-1"></i
+      ></a>
+    </div>
+  </div>
+</div>

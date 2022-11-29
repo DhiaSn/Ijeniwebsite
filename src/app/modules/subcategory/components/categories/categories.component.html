@@ -1,0 +1,56 @@
+<div *ngIf="preload == true" class="preloader"></div>
+<section *ngIf="isLoading == false" class="middle bg-light">
+  <div class="container">
+    <!-- Single Category -->
+    <div class="row align-items-start mb-5" *ngFor="let category of toDisplay">
+      <div class="col-xl-3 col-lg-4 col-md-4 col-sm-12 col-12">
+        <div class="d-block full-width mt-2 mb-3">
+          <h3 class="ft-medium mb-0">{{ category.parent.name }}</h3>
+        </div>
+      </div>
+      <div class="col-xl-9 col-lg-8 col-md-8 col-sm-12 col-12">
+        <div class="row">
+          <div
+            class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 category-item-container"
+            *ngFor="let item of category.categoriesChild"
+          >
+            <div
+              class="d-block full-width px-4 py-4 bg-white rounded mb-3 category-card"
+            >
+              <div class="d-block full-width mb-1 category-icon-container">
+                <img
+                  [src]="item.iconURI"
+                  class="img-fluid category-icon"
+                  width="45"
+                  alt="category icon"
+                />
+              </div>
+              <div class="category-name-container">
+                <h4
+                  [routerLink]="['/prestataire']"
+                  [queryParams]="{ categoryId: category.categoriesChild[0].id }"
+                  class="ft-medium mb-0 fs-md"
+                >
+                  {{ item.name }}
+                </h4>
+              </div>
+              <div class="category-name-container-AR">
+                <p class="mb-3 p-0 lh-1">{{ item.name_AR }}</p>
+              </div>
+
+              <a
+                [routerLink]="['/prestataire']"
+                [queryParams]="{ categoryId: category.categoriesChild[0].id }"
+                class="theme-cl ft-medium"
+                >Explore Providers<i class="lni lni-arrow-right-circle ml-1"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <ng-lottie *ngIf="isLoading==true" [options]="options" (animationCreated)="onAnimate($event)">
+</ng-lottie> -->

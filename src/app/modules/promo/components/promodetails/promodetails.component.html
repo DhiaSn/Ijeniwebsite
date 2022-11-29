@@ -1,0 +1,135 @@
+<div class="proDetails section-padding2" *ngIf="promo">
+  <div class="container">
+    <!-- Bread Crumb S t a r t -->
+    <div class="row mb-40">
+      <div class="col-sm-12">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a>Home</a></li>
+            <li class="breadcrumb-item"><a>Promo Details</a></li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+    <!-- End-of Bread Crumb-->
+    <div class="row">
+      <div class="col-xl-7 col-lg-12">
+        <!-- Product Slider -->
+        <app-image-carousel [slides]="images"></app-image-carousel>
+        <!-- proDescription -->
+        <div class="proDescription mt-3">
+          <!-- Top -->
+          <div class="descriptionTop">
+            <h4>
+              <a class="detailsTittle text-capitalize">
+                {{ promo.promoName }}</a
+              >
+            </h4>
+            <p class="detailsCap">{{ promo.createdDate | date }}</p>
+            <span class="detailsPricing">{{ promo.regularPrice }} DT</span>
+          </div>
+          <!-- Mid -->
+          <div class="descriptionMid">
+            <h4 class="priceTittle">Description</h4>
+            <ul class="listing">
+              <li class="listItem">
+                <i class="las la-check icon"></i>{{ promo.description }}
+              </li>
+            </ul>
+          </div>
+          <!-- Footer -->
+          <div class="descriptionFooter">
+            <div class="btn-wrapper">
+              <!-- <a  class="cmn-btn-outline2"><i class="lab la-font-awesome-flag icon"></i>Report</a> -->
+            </div>
+            <div class="socialWrap">
+              <a class="social"><i class="lab la-facebook-square"></i></a>
+              <a class="social"><i class="lab la-twitter"></i></a>
+              <a class="social"><i class="lab la-linkedin"></i></a>
+              <a class="social"><i class="lar la-bell"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-5 col-lg-12">
+        <div class="sellerMessage mb-24">
+          <div class="singleFlexitem mb-24">
+            <div class="recentImg">
+              <img
+                [src]="promo.providerPictureURI"
+                alt="images"
+                style="width: 100px; height: 100px"
+              />
+            </div>
+            <div class="recentCaption">
+              <h5>
+                <a class="featureTittle text-capitalize"
+                  >{{ promo.providerName }}
+                  <img
+                    src="assets/img/icon/checkMark.svg"
+                    class="icon"
+                    alt="images"
+                /></a>
+              </h5>
+              <p class="featureCap">{{ promo.fullAddress }}</p>
+            </div>
+          </div>
+          <div class="contactSeller">
+            <div class="row">
+              <div class="col-lg-8">
+                <div class="d-flex my-2 sellerPhone">
+                  <div class="icon mt-1 mr-1" style="font-size: 17px">
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+                  </div>
+                  <h4>(216) {{ promo.providerPhoneNumber }}</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="btn-wrapper mt-2">
+            <a class="cmn-btn-outline2 w-100"
+              ><i class="las la-comments icon"></i>Message seller</a
+            >
+          </div>
+        </div>
+        <section class="recentListing" *ngIf="promo.otherPromos.length != 0">
+          <div
+            class="borderStyle style1 wow fadeInLeft social"
+            data-wow-delay="0.1s"
+          >
+            <div
+              class="singleFlexitem mb-24"
+              *ngFor="let other of promo.otherPromos"
+            >
+              <div class="recentImg">
+                <img
+                  [src]="other.coverPicture"
+                  alt="images"
+                  style="height: 150px; width: 165px"
+                />
+              </div>
+              <div class="recentCaption">
+                <h5>
+                  <a
+                    [routerLink]="['/promo', other.id]"
+                    class="featureTittle"
+                    >{{ other.promoName }}</a
+                  >
+                </h5>
+                <p class="featureCap">
+                  {{ other.fullAddress }}
+                  <strong class="subCap">{{ other.createdDate | date }}</strong>
+                </p>
+                <span class="featurePricing">$124.80</span>
+                <!-- <div class="btn-wrapper">
+									<span class="pro-btn1">RENOVETED</span>
+									<span class="pro-btn2">PROMOTED</span>
+								</div> -->
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

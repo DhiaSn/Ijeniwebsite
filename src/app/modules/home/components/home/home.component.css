@@ -1,0 +1,22 @@
+.play-app-store-img {
+  width: 200px;
+}
+
+.tag-award-text {
+  height: 45px;
+}
+
+@media only screen and (max-width: 393px) {
+  .play-app-store-img {
+    width: 150px;
+  }
+
+  .promo-cards-container {
+    padding-right: 24px;
+    padding-left: 12px;
+  }
+}
+
+.btn1 {
+  width: 200px !important;
+}

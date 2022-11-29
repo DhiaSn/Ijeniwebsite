@@ -1,0 +1,62 @@
+<div class="header header-light dark-text">
+  <div class="container">
+    <nav id="navigation" class="navigation navigation-landscape">
+      <div class="nav-header">
+        <a class="nav-brand" style="cursor: pointer" routerLink="/">
+          <img src="assets/logo/Logo_ijeni_horizontal.svg" class="logo" alt="Ijeni Logo" />
+        </a>
+        <div class="nav-toggle"></div>
+        <div class="mobile_nav">
+          <ul>
+            <li>
+              <a data-toggle="modal" data-target="#login" class="theme-cl fs-lg">
+                <i class="lni lni-user"></i>
+              </a>
+            </li>
+            <li>
+              <a class="crs_yuo12 w-auto text-white theme-bg">
+                <span class="embos_45" style="background-color: #ffcc09 !important"><i
+                    class="fas fa-plus-circle mr-1 mr-1"></i>Devenir
+                  prestataire</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="nav-menus-wrapper" style="transition-property: none">
+        <ul class="nav-menu">
+          <li><a routerLink="/">Acceuil</a></li>
+
+          <li>
+            <a routerLink="/categories">Services</a>
+            <!--             <ul class="nav-dropdown nav-submenu">
+              <li><a>Job Search V1</a></li>
+              <li><a>Job Search V2</a></li>
+            </ul> -->
+          </li>
+
+          <li>
+            <a [routerLink]="['/prestataire']" [queryParams]="{ categoryId: '2' }"
+              [queryParams]="{ categoryId: '2' }">Préstataires</a>
+          </li>
+          <li>
+            <a routerLink="/contact">Contact</a>
+          </li>
+        </ul>
+
+        <ul class="nav-menu nav-menu-social align-to-right">
+          <li>
+            <a data-toggle="modal" data-target="#login" class="theme-cl ft-medium">
+              <i class="lni lni-user mr-2"></i>Sign In
+            </a>
+          </li>
+          <li class="add-listing">
+            <a>
+              <i class="lni lni-circle-plus mr-1"></i> Devenir prestataire
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<!-- Single Item -->
+<div class="blg_grid_box flex promo-card" *ngIf="promo">
+  <div class="blg_grid_thumb">
+    <a [routerLink]="['/promo', promo.id]">
+      <img
+        [src]="promo.coverPicture"
+        class="promo-card-picture"
+        alt="{{ promo.promoName }}"
+    /></a>
+  </div>
+  <div class="blg_grid_caption">
+    <!-- <div class="blg_tag"><span>{{category.name=='' ? 'oussema':category.name}}</span></div> -->
+    <div class="blg_title mb-2">
+      <h4>
+        <a
+          [routerLink]="['/promo', promo.id]"
+          class="text-capitalize promo-title"
+          >{{ promo.promoName }}</a
+        >
+      </h4>
+    </div>
+    <div class="blg_desc promo-address">
+      <p class="fullAddress-text">{{ promo.fullAddress }}</p>
+    </div>
+  </div>
+  <div class="crs_grid_foot">
+    <div
+      class="crs_flex d-flex align-items-center justify-content-between br-top py-2 px-3"
+    >
+      <div class="crs_fl_last">
+        <div class="foot_list_info">
+          <ul>
+            <li>
+              <div class="elsio_tx">
+                <del>{{ promo.regularPrice }}Dt</del>
+              </div>
+            </li>
+
+            <li>
+              <div class="elsio_tx">{{ promo.price }}Dt</div>
+            </li>
+            <li>
+              <div class="elsio_ic">
+                <i class="fa fa-clock text-warning"></i>
+              </div>
+              <div class="elsio_tx">{{ promo.createdDate | date }}</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

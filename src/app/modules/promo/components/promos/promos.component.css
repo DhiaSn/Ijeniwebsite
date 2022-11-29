@@ -1,0 +1,10 @@
+.activated {
+  color: #ffcc09 !important;
+}
+
+.desactivated {
+  color: #495057 !important;
+}
+.foot_list_info ul li {
+  margin-left: 42px;
+}

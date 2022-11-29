@@ -1,0 +1,380 @@
+<div class="home-banner margin-bottom-0 intro-bg">
+  <div class="container">
+    <div class="row align-items-center justify-content-between">
+      <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-12">
+        <div class="banner_caption text-left mb-4">
+          <div class="d-block mb-2">
+            <span class="px-3 py-1 medium theme-bg-light theme-cl rounded">Les meuileurs services</span>
+          </div>
+          <h1 class="banner_title ft-bold mb-1">
+            Le service qu'il vous faut,<br />en une minute chrono!
+          </h1>
+          <p class="fs-md ft-regular">
+            Retrouvez plus de 20.000 prestataires de service
+          </p>
+        </div>
+        <form class="bg-white rounded p-1">
+          <div class="row no-gutters">
+            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-12">
+              <div class="form-group mb-0 position-relative">
+                <input type="text" class="form-control lg left-ico" placeholder="Rechercher sur Ijeni" />
+                <i class="bnc-ico lni lni-search-alt"></i>
+              </div>
+            </div>
+            <div class="col-xl-5 col-lg-4 col-md-4 col-sm-12 col-12">
+              <div class="form-group mb-0 position-relative">
+                <select class="custom-select lg b-0">
+                  <option value="">Choisir une catégorie</option>
+                  <option *ngFor="let parent of Parents" value="parent.name">
+                    {{ parent.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-xl-2 col-lg-3 col-md-3 col-sm-12 col-12">
+              <div class="form-group mb-0 position-relative">
+                <button class="btn full-width custom-height-lg theme-bg text-white fs-md" type="button">
+                  Yalla
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-12">
+        <div class="bnr_thumb position-relative">
+          <img src="assets/img/bn-2.png" class="img-fluid bnr_img" alt="" />
+          <div class="list_crs_img">
+            <img src="assets/img/img-1.png" class="img-fluid elsio cirl animate-fl-y" alt="" />
+            <img src="assets/img/img-3.png" class="img-fluid elsio arrow animate-fl-x" alt="" />
+            <img src="assets/img/img-2.png" class="img-fluid elsio moon animate-fl-x" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ======================= Home Banner ======================== -->
+
+<!-- ================================ Tag Award ================================ -->
+<section class="p-0">
+  <div class="container" *ngIf="stats">
+    <div class="row justify-content-center">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="crp_box fl_color ovr_top">
+          <div class="row align-items-center">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+              <div class="dro_140">
+                <div class="dro_141 de">
+                  <i class="fa fa-journal-whills"></i>
+                </div>
+                <div class="dro_142">
+                  <h6>{{ stats.totalProviders }} Prestataires</h6>
+                  <div class="tag-award-text">
+                    <p>
+                      Plus de {{ stats.totalProviders }} prestataire res de
+                      service partout en Tunisie
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+              <div class="dro_140">
+                <div class="dro_141 de">
+                  <i class="fa fa-business-time"></i>
+                </div>
+                <div class="dro_142">
+                  <h6>{{ stats.totalUsers }} Clients</h6>
+                  <div class="tag-award-text">
+                    <p>
+                      Plus de {{ stats.totalUsers }} heureux partout en Tunisie
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+              <div class="dro_140">
+                <div class="dro_141 de"><i class="fa fa-user-shield"></i></div>
+                <div class="dro_142">
+                  <h6>{{ stats.totalCategories }} services livré</h6>
+                  <div class="tag-award-text">
+                    <p>Services livré a nos cliens en toute simplicité</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--==========================================
+=            All Category Section            =
+===========================================-->
+
+<!-- ======================= All category ======================== -->
+<section class="space gray">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+        <div class="sec_title position-relative text-center mb-5">
+          <h6 class="text-muted mb-0">Popular Categories</h6>
+          <h2 class="ft-bold">Browse Top Categories</h2>
+        </div>
+      </div>
+    </div>
+
+    <!-- row -->
+    <div class="row align-items-center" *ngIf="toDisplay">
+      <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6" *ngFor="let category of toDisplay">
+        <div class="cats-wrap text-center" [routerLink]="['/prestataire']"
+          [queryParams]="{ categoryId: category.categoriesChild[0].id }">
+          <a [routerLink]="['/prestataire']" [queryParams]="{ categoryId: category.categoriesChild[0].id }"
+            class="cats-box d-block rounded bg-white px-2 py-4">
+            <div
+              class="text-center mb-2 mx-auto position-relative d-inline-flex align-items-center justify-content-center p-3 theme-bg-light circle">
+              <!-- <i class="lni lni-laptop-phone fs-lg theme-cl"></i> -->
+              <img src="{{ category.parent.iconURI }}" alt="{{ category.parent.name }}" style="height: 60px" />
+            </div>
+            <div class="cats-box-caption">
+              <h4 class="fs-md mb-0 ft-medium m-catrio">
+                {{ category?.parent.name }}
+              </h4>
+              <!-- <span class="text-muted">607 Jobs</span> -->
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- /row -->
+
+    <div class="row justify-content-center">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+        <div class="position-relative text-center">
+          <a [routerLink]="['/categories']" class="btn btn-md bg-dark rounded text-light hover-theme">Browse All
+            Categories<i class="lni lni-arrow-right-circle ml-2"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ======================= All category ======================== -->
+
+<!-- <section class="bg-light middle space gray">
+  <h3
+    class="ft-bold mb-1 space gray mb-5"
+    style="text-align: center; font-weight: bold"
+  >
+    Engagez les meilleurs <span class="theme-cl">Préstataires</span>
+  </h3>
+  <div class="container">
+
+    
+    <div class="row align-items-center">
+      
+      <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+        <div class="job_grid border rounded">
+          <div class="position-absolute ab-left">
+            <button
+              type="button"
+              class="p-3 border circle d-flex align-items-center justify-content-center bg-white text-gray"
+            >
+              <i
+                class="lni lni-heart-filled position-absolute snackbar-wishlist"
+              ></i>
+            </button>
+          </div>
+          <div class="job_grid_thumbmb-2 text-center pt-4 px-3 mb-2">
+            <a class="d-inline-flex text-center m-auto circle border p-2"
+              ><img
+                src="https://via.placeholder.com/500x500"
+                class="img-fluid circle"
+                width="70"
+                alt=""
+            /></a>
+          </div>
+          <div class="job_grid_caption text-center pb-3 px-3">
+            <h4 class="mb-0 ft-medium medium">
+              <a class="text-dark fs-md">John K. Surber</a>
+            </h4>
+            <div class="jbl_location">
+              <i class="lni lni-map-marker mr-1"></i><span>San Francisco</span>
+            </div>
+          </div>
+          <div class="job_grid_footer px-3">
+            <ul class="p-0 skills_tag text-center">
+              <li>
+                <span class="px-2 py-1 medium skill-bg rounded text-dark"
+                  >Joomla</span
+                >
+              </li>
+              <li>
+                <span class="px-2 py-1 medium skill-bg rounded text-dark"
+                  >WordPress</span
+                >
+              </li>
+              <li>
+                <span class="px-2 py-1 medium skill-bg rounded text-dark"
+                  >PHP</span
+                >
+              </li>
+              <li>
+                <span class="px-2 py-1 medium skill-bg rounded text-dark"
+                  >HTML5</span
+                >
+              </li>
+              <li>
+                <span class="px-2 py-1 medium bg-danger rounded text-light"
+                  >+3 More</span
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="job_grid_footer pb-4 px-3">
+            <div class="df-1 text-dark ft-medium col-12 mt-3">
+              <a class="btn gray apply-btn rounded full-width"
+                >View Candidate<i class="lni lni-arrow-right-circle ml-1"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section> -->
+
+<!-- Promo List -->
+
+<section class="space min gray" *ngIf="promoLoaded == true">
+  <div class="container promo-cards-container">
+    <div class="row justify-content-center">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+        <div class="sec_title position-relative text-center mb-4">
+          <h6 class="text-muted mb-0">Top du moment</h6>
+          <h2 class="ft-bold">Dernieres promo !</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6" *ngFor="let item of lastPromos">
+        <app-promo-card [promo]="item"></app-promo-card>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+      <div class="position-relative text-center">
+        <a class="btn btn-md bg-dark rounded text-light hover-theme" routerLink="/promo">Browse All Promos<i
+            class="lni lni-arrow-right-circle ml-2"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="space gray">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+        <div class="content_block_2 pr-3 py-4">
+          <div class="content-box">
+            <div class="sec-title light">
+              <p class="theme-cl px-3 py-1 rounded bg-light-success d-inline-flex">
+                Download apps
+              </p>
+              <h2 class="ft-bold">Get the Workplex Job<br />Search App</h2>
+            </div>
+            <div class="text">
+              <p>
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+                quae ab illo inventore veritatis et quasi architecto
+                accusantium.
+              </p>
+            </div>
+            <div class="btn-box clearfix mt-5 d-flex">
+              <div class="btn1">
+                <a href="https://apps.apple.com/us/app/ijeni/id1547115034" target="_blank"
+                  class="download-btn play-store mb-1 d-inline-flex">
+                  <img src="assets/img/ios.png" class="play-app-store-img" alt="Ijeni Application on App Store" /></a>
+              </div>
+
+              <div class="btn1">
+                <a href="https://play.google.com/store/apps/details?id=com.ntech.ijeni1" target="_blank"
+                  class="download-btn play-store ml-2 mb-1 d-inline-flex">
+                  <img src="assets/img/and.png" class="play-app-store-img" alt="Ijeni Application on Playstore" /></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-md-12 col-sm-12 image-column">
+        <div class="image-box">
+          <figure class="image">
+            <img src="assets/img/app.png" class="img-fluid" alt="Download app" />
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="space gray">
+  <div class="container">
+    <div class="row align-items-center justify-content-between">
+      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+        <div class="m-spaced">
+          <div class="position-relative">
+            <div class="mb-1">
+              <span class="theme-bg-light theme-cl px-2 py-1 rounded">About Us</span>
+            </div>
+            <h2 class="ft-bold mb-3">Devenez prestataire</h2>
+            <p class="mb-2">
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+              quae ab illo inventore veritatis et quasi architecto beatae vitae
+              dicta sunt explicabo.
+            </p>
+            <p class="mb-4">
+              At vero eos et accusamus et iusto odio dignissimos ducimus qui
+              blanditiis deleniti atque corrupti quos dolores et quas molestias
+              excepturi sint occaecati cupiditate non provident, similique sunt
+              in culpa qui officia deserunt mollitia animi, id est laborum et
+              dolorum fuga. Et harum quidem rerum facilis est et expedita
+              distinctio.
+            </p>
+          </div>
+          <div class="position-relative row">
+            <div class="col-lg-4 col-md-4 col-4">
+              <h3 class="ft-bold theme-cl mb-0">10k+</h3>
+              <p class="ft-medium">Active Jobs</p>
+            </div>
+            <div class="col-lg-4 col-md-4 col-4">
+              <h3 class="ft-bold theme-cl mb-0">12k+</h3>
+              <p class="ft-medium">Resumes</p>
+            </div>
+            <div class="col-lg-4 col-md-4 col-4">
+              <h3 class="ft-bold theme-cl mb-0">07k+</h3>
+              <p class="ft-medium">Employers</p>
+            </div>
+            <div class="col-lg-12 col-md-12 col-12 mt-3">
+              <a href="javascript:void(0);" class="btn btn-md theme-bg-light rounded theme-cl hover-theme">See Details<i
+                  class="lni lni-arrow-right-circle ml-2"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12">
+        <div class="position-relative">
+          <img src="assets/img/bn-5.png" class="img-fluid" alt="Prestataire" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
